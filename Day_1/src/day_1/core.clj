@@ -17,8 +17,6 @@
                (+ carring-calories-count (read-string cal))
                elfs-calories)))))
 
-
-;; --------
 (defn first-puzzle [calories-per-elf]
   (reduce
       (fn [greater value]
@@ -27,12 +25,15 @@
           greater))
       calories-per-elf))
 
-;;
-(defn second-puzzle [calories-per-elf])
 
+(defn second-puzzle [calories-per-elf]
+  (->> calories-per-elf
+       sort
+       (take-last 3)
+       (reduce +)))
 
 (defn -main [file-path]
   (let [raw-data (read-file file-path)
-        calories-per-elf (calculate-total-cal-per-elf raw-data)
-        first-puzzle-solution (first-puzzle calories-per-elf)]
-    (println "First Puzzle: " first-puzzle-solution)))
+        calories-per-elf (calculate-total-cal-per-elf raw-data)]
+    (println "First Puzzle: " (first-puzzle calories-per-elf))
+    (println "Second Puzzle: " (second-puzzle calories-per-elf))))
