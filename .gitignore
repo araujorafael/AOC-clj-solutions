@@ -3,6 +3,7 @@
 *.log
 tmp/
 
+.lsp
 /target
 /classes
 /checkouts
@@ -12,7 +13,7 @@ pom.xml.asc
 *.jar
 *.class
 /.lein-*
-/.nrepl-port
+.nrepl-port
 /.prepl-port
 /.cpcache
 .clj-kondo
